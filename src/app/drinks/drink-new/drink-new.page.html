@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+		<ion-title class="titlePage">New drink</ion-title>
+		<ion-button routerLink="/" routerDirection="back" slot="start">
+			Back
+		</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content-background" no-bounce>
+	<!-- <form class="form-div" (submit)="addExpense()"> -->
+	<form class="form-div">
+		<ion-list>
+			<ion-item>
+				<ion-label postion="stacked">Type</ion-label>
+				<ion-select [(ngModel)]="newDrink.type" interface="action-sheet" name="type" (ionChange)="drinkTypeSelected()">
+					<ion-select-option value="beer">Beer</ion-select-option>
+					<ion-select-option value="cocktail">Cocktail</ion-select-option>
+					<ion-select-option value="shot">Shot</ion-select-option>
+					<ion-select-option value="virgin">Virgin</ion-select-option>
+				</ion-select>
+			</ion-item>
+
+			<ion-item *ngIf="newDrink.type != '' ">
+				<ion-label position="stacked">Name</ion-label>
+				<ion-input type="text" [(ngModel)]="newDrink.name" name="name"></ion-input>
+			</ion-item>
+
+			<ion-item *ngIf="newDrink.type == 'beer' ">
+				<ion-label position="stacked">Price 250 ml: </ion-label>
+				<ion-input type="number" [(ngModel)]="newDrink.price_250" name="price_250"></ion-input>
+			</ion-item>
+			<ion-item *ngIf="newDrink.type == 'beer' ">
+				<ion-label position="stacked">Price 500 ml: </ion-label>
+				<ion-input type="number" [(ngModel)]="newDrink.price_500" name="price_500"></ion-input>
+			</ion-item>
+			<ion-item *ngIf="newDrink.type != 'beer' && newDrink.type != ''">
+				<ion-label position="stacked">Price : </ion-label>
+				<ion-input type="number" [(ngModel)]="newDrink.price" name="price"></ion-input>
+			</ion-item>
+
+			<ion-item *ngIf="newDrink.isAlcohol">
+				<ion-label position="stacked">Alcohol</ion-label>
+				<ion-input type="number" [(ngModel)]="newDrink.alcohol" name="alcohol"></ion-input>
+			</ion-item>
+
+			<ion-item *ngIf="newDrink.type != '' ">
+				<ion-label position="stacked">Description</ion-label>
+				<ion-input type="text" [(ngModel)]="newDrink.description" name="description"></ion-input>
+			</ion-item>
+
+			<ion-item *ngIf="newDrink.type != '' ">
+				<ion-label position="stacked">Image</ion-label>
+				<ion-input type="text" [(ngModel)]="newDrink.img" name="img"></ion-input>
+			</ion-item>
+
+
+
+
+			<!-- <ion-button expand="full" type="submit" [disabled]="inputCheck()">Submit</ion-button> -->
+			<ion-button expand="full" type="submit">Submit</ion-button>
+		</ion-list>
+
+	</form>
+
+</ion-content>

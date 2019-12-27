@@ -1,0 +1,22 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+	<ion-item *ngFor="let beer of beers">
+		<ion-card class="welcome-card">
+			<img [src]="beer.img" alt="" class="img_left"/>
+			<ion-card-header class="card_header">
+				<ion-card-title>{{beer.name}}</ion-card-title>
+			</ion-card-header>
+			<ion-card-content>
+				<p>Alcohol : {{beer.alcohol}}%</p>
+				<p>250 ml : ${{beer.price_250}} | 500 ml : ${{beer.price_500}}</p>
+				<p>{{beer.description}}</p>
+				<ion-button *ngIf="userService.signedIn" id="delete" color="danger" slot="end" (click)="presentDeleteAlert(beer)">
+					Delete
+				</ion-button>
+			</ion-card-content>
+		</ion-card>
+	</ion-item>
+</ion-content>

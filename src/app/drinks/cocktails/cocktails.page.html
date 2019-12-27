@@ -1,0 +1,18 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+	<ion-item *ngFor="let cocktail of cocktails">
+		<ion-card class="welcome-card">
+			<img [src]="cocktail.img" alt="" class="img_left"/>
+			<ion-card-header class="card_header">
+				<ion-card-title>{{cocktail.name}}</ion-card-title>
+			</ion-card-header>
+			<ion-card-content>
+				<p>${{cocktail.price}}</p>
+				<p>{{cocktail.description}}</p>
+			</ion-card-content>
+		</ion-card>
+	</ion-item>
+</ion-content>

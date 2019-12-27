@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+    <ion-title>Events</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-item *ngFor="let event of events">
+		<ion-card class="welcome-card">
+			<img [src]="event.img" alt="" class="img_left"/>
+			<ion-card-header class="card_header">
+				<ion-card-title>{{event.name}}</ion-card-title>
+			</ion-card-header>
+			<ion-card-content>
+				<p>{{event.date}}</p>
+				<p>{{event.description}}</p>
+			</ion-card-content>
+		</ion-card>
+	</ion-item>
+</ion-content>
